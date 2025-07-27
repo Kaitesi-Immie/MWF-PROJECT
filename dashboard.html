@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MWF Dashboard</title>
+    <link href="CSS/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f0f4f9;
+            color: #1a2e4a;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        nav.navbar {
+            background-color: #1a2e4a;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 0.2);
+        }
+
+        nav.navbar .navbar-brand {
+            color: #61dafb;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        nav.navbar .nav-link {
+            color: #c3d9f8;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav.navbar .nav-link:hover,
+        nav.navbar .nav-link.active {
+            color: #61dafb;
+        }
+
+        /* Container & Content */
+        .container-main {
+            max-width: 1140px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #1a2e4a;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+            border-left: 6px solid #61dafb;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #1a2e4a;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #506d9e;
+            margin-bottom: 0.5rem;
+        }
+
+        .text-muted {
+            font-size: 0.85rem;
+            color: #98aacf !important;
+        }
+
+        /* Pie Chart */
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 1.5rem auto 1rem;
+            background: conic-gradient(#61dafb 0% 38%,
+                    #1a4d8f 38% 68%,
+                    #0f2a54 68% 100%);
+            border: 3px solid #61dafb;
+            box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
+        }
+
+        .pie-legend {
+            max-width: 320px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: #1a2e4a;
+            user-select: none;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            box-shadow: 0 0 3px rgb(0 0 0 / 0.15);
+        }
+
+        .legend-furniture {
+            background: #61dafb;
+        }
+
+        .legend-tools {
+            background: #1a4d8f;
+        }
+
+        .legend-raw {
+            background: #0f2a54;
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            max-width: 600px;
+            height: 200px;
+            margin: 0 auto;
+            background: #dbe9fb;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgb(26 46 74 / 0.1);
+            border: 2px solid #61dafb;
+            user-select: none;
+        }
+
+        .bar {
+            width: 50px;
+            background-color: #1a4d8f;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding-top: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: inset 0 -4px 6px rgb(0 0 0 / 0.15);
+            cursor: default;
+            transition: background-color 0.3s ease;
+        }
+
+        .bar:hover {
+            background-color: #61dafb;
+            color: #0f2a54;
+        }
+
+        .bar span {
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 576px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav.navbar .nav-link {
+                margin-right: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="dashboard.html">MWF</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="stock.html">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" href="sales.html">Sales</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="reports.html">Reports</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container-main">
+        <h2 style="font-style:italic ;">Welcome Manager!</h2>
+
+        <section class="cards-grid">
+            <article class="card">
+                <h3 class="card-title">Current Stock</h3>
+                <p class="card-text">Items in storage: <strong>70 Sofas, 17 Marble dinning sets, 13 kitchen cabinets, 3 dressing mirrors, 100 timber(hardwood), 100 Center Tables </strong></p>
+                <p class="text-muted">Last updated: Today</p>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">Items to Restock</h3>
+                <p class="card-text">Urgent restocks needed: <strong>8</strong></p>
+                <p class="text-muted">Check restock list</p>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">Employees</h3>
+                <p class="card-text">Active employees: <strong>12</strong></p>
+                <p class="text-muted">Carpenters, designers, admin, tendants.....</p>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">Projects</h3>
+                <p class="card-text">Ongoing projects: <strong>5</strong></p>
+                <p class="text-muted">Latest: Conference hall tables for Sheraton Hotel</p>
+            </article>
+
+            <article class="card">
+                <h3 class="card-title">Reports</h3>
+                <p class="card-text">Monthly reports: <strong>Updated</strong></p>
+                <p class="text-muted">Last sent: July 24</p>
+            </article>
+        </section>
+
+        <section class="card p-4">
+            <h3 class="card-title text-center mb-4"> Current Stock</h3>
+            <div class="pie-chart" aria-label="Pie chart showing current stock"></div>
+            <div class="pie-legend" aria-hidden="true">
+                <div class="legend-item">
+                    <div class="legend-color legend-furniture"></div>Furniture (38%)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-tools"></div>Tools (30%)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-raw"></div>Raw Materials (32%)
+                </div>
+            </div>
+    
+            </div>
+        </section>
+    </main>
+
+    <script src="CSS/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

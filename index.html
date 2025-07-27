@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="CSS/bootstrap-5.3.7-dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/CSS/styling.css" />
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    section {
+      min-height: 100vh;
+      background-image: url('images/login page.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card.bg-glass {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .navbar {
+      background-color: #1a2e4a;
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Section: Login Form -->
+  <section>
+    <div class="card bg-glass">
+      <div class="card-body">
+        <h2 class="text-center mb-4 text-primary">Sign in <span class="text-info">to your Account</span></h2>
+
+        <form action="dashboard.html">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="First Name" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Last Name" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email address" />
+          </div>
+
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Password" />
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Log In</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="CSS/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
