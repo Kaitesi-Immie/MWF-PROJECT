@@ -1,92 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reports | MWF Dashboard</title>
+
+  <!-- Bootstrap -->
   <link href="CSS/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #f0f4f9;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      margin: 0;
-      min-height: 100vh;
-    }
-
-    nav.navbar {
-      background-color: #1a2e4a;
-      padding: 0.8rem 2rem;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    nav .navbar-brand {
-      color: #1c5868;
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    nav .nav-link {
-      color: #c3d9f8;
-      font-weight: 600;
-      margin-right: 1rem;
-    }
-
-    nav .nav-link:hover,
-    nav .nav-link.active {
-      color: #61dafb;
-    }
-
-    .container-main {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h2 {
-      margin-bottom: 2rem;
-      font-weight: 700;
-    }
-
-    .report-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      margin-bottom: 1.5rem;
-      border-left: 6px solid #61dafb;
-    }
-
-    .report-title {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .report-text {
-      font-size: 0.95rem;
-      color: #4f6480;
-    }
-
-    .report-date {
-      font-size: 0.85rem;
-      color: #8fa7c1;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 576px) {
-      .nav-link {
-        font-size: 0.9rem;
-        margin-right: 0.5rem;
-      }
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="reports.css" />
 </head>
 
 <body>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="dashboard.html">MWF</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -104,28 +33,16 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 
   <!-- Main Content -->
   <main class="container-main">
-    <h2>Reports</h2>
+    <h2 class="page-title">Reports</h2>
 
-    <div class="report-card">
-      <div class="report-title">Sales Report – July 2025</div>
-      <div class="report-text">
-        Total sales increased by 18% compared to June. The most sold items were wooden shelves and cabinets.
-        Online orders also rose significantly. Weekly tracking helped spot mid-month slumps and adjust marketing.
-      </div>
-      <div class="report-date">Last updated: July 25, 2025</div>
+    <div id="reportsContainer">
+      <!-- Reports will be dynamically loaded via JS -->
     </div>
-
-    <div class="report-card">
-      <div class="report-title">Stock Movement – July 2025</div>
-      <div class="report-text">
-        Over 200 units restocked. Most restocked items included hardwood planks and fittings. Losses from damaged goods reduced by 35%.
-        Weekly audits are improving accountability across store branches.
-      </div>
-      <div class="report-date">Last updated: July 23, 2025</div>
-    </div>
-
   </main>
 
+  <!-- Bootstrap JS -->
   <script src="CSS/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="reports.js"></script>
 </body>
 </html>

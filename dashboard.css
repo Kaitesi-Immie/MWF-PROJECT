@@ -1,0 +1,91 @@
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: #f0f4f9;
+  color: #1a2e4a;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Navbar */
+nav.navbar {
+  padding: 0.8rem 2rem;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.2);
+}
+
+nav.navbar .navbar-brand {
+  color: #61dafb;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+nav.navbar .nav-link {
+  color: #c3d9f8;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+nav.navbar .nav-link:hover,
+nav.navbar .nav-link.active {
+  color: #61dafb;
+}
+
+/* Container & Cards */
+.container-main {
+  max-width: 1140px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+  border-left: 6px solid #61dafb;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+}
+.card-title { font-size: 1.3rem; color: #1a2e4a; margin-bottom: 0.8rem; font-weight: 700; }
+.card-text { font-size: 1rem; color: #506d9e; margin-bottom: 0.5rem; }
+.text-muted { font-size: 0.85rem; color: #98aacf !important; }
+
+/* Pie Chart */
+.pie-chart {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: 1.5rem auto 1rem;
+  background: conic-gradient(#61dafb 0% 38%, #1a4d8f 38% 68%, #0f2a54 68% 100%);
+  border: 3px solid #61dafb;
+  box-shadow: 0 0 15px rgba(97, 218, 251, 0.5);
+}
+.pie-legend {
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #1a2e4a;
+  user-select: none;
+  font-size: 0.9rem;
+}
+.legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.legend-color { width: 16px; height: 16px; border-radius: 3px; box-shadow: 0 0 3px rgb(0 0 0 / 0.15); }
+.legend-furniture { background: #61dafb; }
+.legend-tools { background: #1a4d8f; }
+.legend-raw { background: #0f2a54; }
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  nav.navbar .nav-link { margin-right: 0.5rem; font-size: 0.9rem; }
+}
